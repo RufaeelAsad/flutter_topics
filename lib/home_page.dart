@@ -24,13 +24,24 @@ class HomePage extends StatelessWidget {
               fontSize: 24,
             ),
           );
-        }),
+        },),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.read<CounterBloc>().add(CounterIncrement());
-        },
-        child: Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              context.read<CounterBloc>().add(CounterIncrement());
+            },
+            child: Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              context.read<CounterBloc>().add(CounterDecrement());
+            },
+            child: Icon(Icons.remove),
+          ),
+        ],
       ),
     );
   }
